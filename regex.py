@@ -35,7 +35,7 @@ def shunt(infix):
     postfix = []
 
     # Operator precedence.
-    prec = {'*' : 100, '.' : 80, '|' : 60, ')' : 12, '(' : 11}
+    prec = {'*': 100, '.': 80, '|': 60, ')': 40, '(': 20}
 
     # Loop through the input one character at a time.
     while infix:
@@ -70,7 +70,7 @@ def shunt(infix):
     return ''.join(postfix)
 
 # Used to compile infix into postfix
-def regex_compile(infix):
+def compile(infix):
     postfix = shunt(infix)
     postfix = list(postfix)[::-1]
 
@@ -118,19 +118,61 @@ def regex_compile(infix):
         else:
             accept = State()
             start = State(label=c, edges=[accept])
+            # Create new instance of Fragment to represent the new NFA.
             newFrag = Fragment(start, accept)
-            nfa_stack.append(newFrag)
+
+        # Push the new NFA to the NFA stack.
+        nfa_stack.append(newFrag)
 
     # The NFA stack should have exactly one NFA on it, the answer.
     return nfa_stack.pop()
 
+# Add a state to a set, and follow all of the e(Epsilon) arrows.
+def followes(state, current):
+    # Only do if when we haven't already seen the state.
+    if state not in current:
+        # Put the state itself into current
+        current.add(state)
+    # See whether state is labelled by e(psilon).
+    if state.label is None:
+        # Loop through the states pointed to by this state.
+        for x in state.edges:
+            # Follow all of their e(psilon)s too.
+            followes(x, current)
+
 # Will return true if regex is (Fully) equal to the String s, else false
 def match(regex, s):
     # Compile the regular expression into an NFA
-    nfa = regex_compile(regex)
+    nfa = compile(regex)
+    
+    # Try to mathc the regular expression to the string s.
+    
+    # The current set of states.
+    current = set()
+    # Add the first state, and follow all e(psilon) arrows.
+    followes(nfa.start, current)
+    # The previous set of states.
+    previous = set()
+
+    # Loop through characters in s.
+    for c in s:
+        # Kepp track of where we ere
+        previous = current
+        # Creates a new empty set for states we're about to be in.
+        current = set()
+        # Loop through the previous states.
+        for state in previous:
+            # Only follow arrows not labelled by e(Epsilon).
+            # If Epsilon (E state) then label = None.
+            if state.label is not None:
+                # If the label of the state is equal to the character we've read.
+                if state.label == c:
+                    # Add the state at the end of the arrow to the current
+                    followes(state.edges[0], current)
+
     # Ask the NFA if it matchs the String s
-    return nfa
+    return (nfa.accept in current)
 
 # Test if the match function works!
-print(match("a.b|b*", "bbbbbbb"))
+print(match("a.b|b*", "bbbbbbbb"))
 
