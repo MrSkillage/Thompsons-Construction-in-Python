@@ -158,5 +158,5 @@ def match(regex, s):
   return (nfa.accept in current)
 
 # Test if the match function works!
-print(match("a.b|b*", "ab"))
+print(match("a.b|b*", "bbb"))
 
