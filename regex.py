@@ -72,6 +72,7 @@ def compile(infix):
   while postfix:
     # Pop a character from postfix
     c = postfix.pop()
+
     if c == '.':
       # Pop two fragments of the stack
       frag1 = nfa_stack.pop()
@@ -93,28 +94,28 @@ def compile(infix):
       frag1.accept.edges.append(accept)
     elif c == '?':
       # Pop a single fragment off the stack.
-      frag = nfa_stack.pop()
+      frag1 = nfa_stack.pop()
       # Create new start and accept States.
       accept = State()
-      start = State(edges=[frag.start, accept])
+      start = State(edges=[frag1.start, accept])
       # Point arrows
-      frag.accept.edges.append(accept)
+      frag1.accept.edges.append(accept)
     elif c == '+':
       # Pop a single fragment off the stack.
-      frag = nfa_stack.pop()
+      frag1 = nfa_stack.pop()
       # Create a new start and accept States.
       accept = State()
-      start = State(edges=[frag.start])
+      start = State(edges=[frag1.start])
       # Point fragment accept to start and accept.
-      frag.accept.edges = [frag.start, accept]
+      frag1.accept.edges = [frag1.start, accept]
     elif c == '*':
       # Pop a single fragment off the stack
-      frag = nfa_stack.pop()
+      frag1 = nfa_stack.pop()
       # Create new start state (fragment start) and accept state (epsilon)
       accept = State()
-      start = State(edges=[frag.start, accept])
+      start = State(edges=[frag1.start, accept])
       # Point arrows
-      frag.accept.edges = [frag.start, accept]
+      frag1.accept.edges = [frag1.start, accept]
     else:
       accept = State()
       start = State(label=c, edges=[accept])
