@@ -99,6 +99,14 @@ def compile(infix):
       start = State(edges=[frag.start, accept])
       # Point arrows
       frag.accept.edges.append(accept)
+    elif c == '+':
+      # Pop a single fragment off the stack.
+      frag = nfa_stack.pop()
+      # Create a new start and accept States.
+      accept = State()
+      start = State(edges=[frag.start])
+      # Point fragment accept to start and accept.
+      frag.accept.edges = [frag.start, accept]
     elif c == '*':
       # Pop a single fragment off the stack
       frag = nfa_stack.pop()
@@ -166,5 +174,5 @@ def match(regex, lang):
   return (nfa.accept in current)
 
 # Test if the match function works!
-print(match("a?", "aaaaa"))
+print(match("(a.b)|a+.b*|(b.c).d?", "bcd"))
 
