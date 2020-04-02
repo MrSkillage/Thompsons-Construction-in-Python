@@ -28,7 +28,7 @@ def shunt(infix):
   postfix = []
 
   # Operator precedence.
-  prec = {'*': 100, '.': 80, '|': 60, ')': 40, '(': 20}
+  prec = {'*':100, '+':90, '?':80, '.':70, '|':60, ')': 40, '(': 20}
 
   # Loop through the input one character at a time.
   while infix:
@@ -91,10 +91,18 @@ def compile(infix):
       # Point the old accept States at the new one
       frag2.accept.edges.append(accept)
       frag1.accept.edges.append(accept)
+    elif c == '?':
+      # Pop a single fragment off the stack.
+      frag = nfa_stack.pop()
+      # Create new start and accept States.
+      accept = State()
+      start = State(edges=[frag.start, accept])
+      # Point arrows
+      frag.accept.edges.append(accept)
     elif c == '*':
       # Pop a single fragment off the stack
       frag = nfa_stack.pop()
-      # Create new start and accpet States
+      # Create new start state (fragment start) and accept state (epsilon)
       accept = State()
       start = State(edges=[frag.start, accept])
       # Point arrows
@@ -125,7 +133,7 @@ def followes(state, current):
       followes(x, current)
 
 # Will return true if regex is (Fully) equal to the String s, else false
-def match(regex, s):
+def match(regex, lang):
   # Compile the regular expression into an NFA
   nfa = compile(regex)
     
@@ -139,7 +147,7 @@ def match(regex, s):
   previous = set()
 
   # Loop through characters in s.
-  for c in s:
+  for c in lang:
     # Kepp track of where we ere
     previous = current
     # Creates a new empty set for states we're about to be in.
@@ -158,5 +166,5 @@ def match(regex, s):
   return (nfa.accept in current)
 
 # Test if the match function works!
-print(match("a.b|b*", "bbb"))
+print(match("a?", "aaaaa"))
 

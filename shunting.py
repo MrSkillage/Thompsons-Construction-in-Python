@@ -2,10 +2,10 @@
 # The Shunting Yard Algorithm for regular expressions.
 
 # The input
-infix = "(a|b).c*"
+infix = "(a|a.b)c*(b?d)e+"
 print("Input is: ", infix)
 # Expected output "ab|c*."
-print("Expected: ab|c*.")
+print("Expected:  ab|c*.")
 
 # Convert input to a stack-ish list.
 infix = list(infix)[::-1]
@@ -17,7 +17,7 @@ opers = []
 postfix = []
 
 # Operator precedence.
-prec = {'*' : 100, '.' : 80, '|' : 60, ')' : 12, '(' : 11}
+prec = {'*':100, '+':90, '?':80, '.':70, '|':60, ')':20, '(':10}
 
 # Loop through the input one character at a time.
 while infix:
@@ -37,7 +37,7 @@ while infix:
     elif c in prec:
         # Push any operators on the opers stack with higher prec to the output.
         while opers and prec[c] < prec[opers[-1]]:
-            postfix.append(opers.push())
+            postfix.append(opers.pop())
         # Push c to the operator stack
         opers.append(c)
     else:
