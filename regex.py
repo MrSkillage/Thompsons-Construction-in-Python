@@ -21,35 +21,34 @@ def shunt(infix):
   # Convert input to a stack-ish list.
   infix = list(infix)[::-1]
 
-  # Operator
+  # Operator stack.
   opers = []
 
   # Output list.
   postfix = []
 
-  # Operator precedence.
+  # Operator precedence dictionary.
   prec = {'*':100, '+':90, '?':80, '.':70, '|':60, ')': 40, '(': 20}
 
   # Loop through the input one character at a time.
   while infix:
     # Pop a character from the input.
     c = infix.pop()
-
     # Decide what to do based on the character.
     if c == '(':
-      # Push an open bracket to the opers stack
+      # Push an open bracket to the opers stack.
       opers.append(c)
     elif c == ')':
       # Pop the operators stack until you find an (.
       while opers[-1] != '(':
         postfix.append(opers.pop())
-      # Get rid of the '('
+      # Get rid of the '('.
       opers.pop()
     elif c in prec:
       # Push any operators on the opers stack with higher prec to the output.
       while opers and prec[c] < prec[opers[-1]]:
         postfix.append(opers.pop())
-      # Push c to the operator stack
+      # Push c to the operator stack.
       opers.append(c)
     else:
       # Typically, we just push the character to the output.
@@ -59,20 +58,21 @@ def shunt(infix):
   while opers:
     postfix.append(opers.pop())
 
-  # Returns the postfix 
+  # Returns the postfix.
   return ''.join(postfix)
 
-# Used to compile infix into postfix
+# Used to compile infix into postfix.
 def compile(infix):
+  # Create postfix and give it a shunted(infix).
   postfix = shunt(infix)
+  # Reverse the order of postfix.
   postfix = list(postfix)[::-1]
-
+  #Create a stack which will hold the nfa's as they're built.
   nfa_stack = []
 
   while postfix:
     # Pop a character from postfix
     c = postfix.pop()
-
     if c == '.':
       # Pop two fragments of the stack
       frag1 = nfa_stack.pop()
@@ -117,6 +117,7 @@ def compile(infix):
       # Point arrows
       frag1.accept.edges = [frag1.start, accept]
     else:
+      # Create a new accept and start state and set the label to the c.
       accept = State()
       start = State(label=c, edges=[accept])
 
@@ -132,7 +133,7 @@ def compile(infix):
 def followes(state, current):
   # Only do if when we haven't already seen the state.
   if state not in current:
-    # Put the state itself into current
+    # Put the state itself into current.
     current.add(state)
   # See whether state is labelled by e(psilon).
   if state.label is None:
@@ -143,7 +144,7 @@ def followes(state, current):
 
 # Will return true if regex is (Fully) equal to the String s, else false
 def match(regex, lang):
-  # Compile the regular expression into an NFA
+  # Compile the regular expression into an NFA.
   nfa = compile(regex)
     
   # Try to mathc the regular expression to the string s.
@@ -157,7 +158,7 @@ def match(regex, lang):
 
   # Loop through characters in s.
   for c in lang:
-    # Kepp track of where we ere
+    # Keep track of where we are currently.
     previous = current
     # Creates a new empty set for states we're about to be in.
     current = set()
@@ -168,10 +169,10 @@ def match(regex, lang):
       if state.label is not None:
         # If the label of the state is equal to the character we've read.
         if state.label == c:
-          # Add the state at the end of the arrow to the current
+          # Add the state at the end of the arrow to the current.
           followes(state.edges[0], current)
 
-  # Ask the NFA if it matchs the String s
+  # Ask the NFA if it matchs the String s.
   return (nfa.accept in current)
 
 # Test if the match function works!
