@@ -175,5 +175,5 @@ def match(regex, lang):
   return (nfa.accept in current)
 
 # Test if the match function works!
-print(match("(a.b)|a+.b*|(b.c).d?", "bcd"))
+# print(match("(a.b)|a+.b*|(b.c).d?", "bc"))
 
