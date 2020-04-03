@@ -31,5 +31,6 @@ I have done some extra research on this project beyond the minimal requirements 
 - In order to check the validity of the regular expression matching the strings tested, I used the [Regex101](https://regex101.com/).  This was very helpful in testing and used to test multiple strings that would match the regular expression.
 - I used the [RealPython](https://realpython.com/) to futher my knowledge on the python language.  These subjects included but were not limited to: input & output, conditionally statments, importing files, dictionaries, and function design.
 - By far the most important and usful website I used was another [Git-Repo](https://cyberzhg.github.io/toolbox/regex2nfa). The user CyberZHG was extremely helpful in understanding and visualzing an regular expression turned into a NFA.  This came in handy when trying to program the ? and  + operators as it allowed me to see a visual representation of the NFA.
+- I used the [Python](https://www.python.org/dev/peps/) website to research suggested PEP guidelines.  After reading through the PEP 8 I did my best to adhere to the guidelines.
 
 
