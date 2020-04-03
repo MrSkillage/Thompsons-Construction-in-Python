@@ -23,7 +23,7 @@ j = True
 # While loop to check if input is correct.
 while(j):
   # Prompts the user to input language.
-  x = input("What's you language? " )
+  x = input("What's your String? " )
   # Prints the langauge for conformation.
   print(x)
   # Prompts user to answer conformation question.
@@ -34,14 +34,14 @@ while(j):
     j = False
 
 # Print the final Expression and Language.
-print("The Expression and Language are:", s, x)
+print("The Regular Expression and String are:", s, ",", x)
 # Runs the regex method match using the input gathered and stored in s and x.
 # Print message if regular expression matches.
 if(regex.match(s, x) is True):
   print("Successful Match!")
-  print("Language:", x, "is found using the Regular Expression:", s)
+  print("String:", x, "is found using the Regular Expression:", s)
 # Print message id regular expression does not match.
 elif(regex.match(s, x) is not True):
   print("Failed Match!")
-  print("Language:", x, "cannot be found using the Regular Expression:", s)
+  print("String:", x, "cannot be found using the Regular Expression:", s)
 
