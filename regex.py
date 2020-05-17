@@ -1,6 +1,15 @@
 # Conor Rabbitte
 # Thomspon Construction Classes
 
+import argparse
+
+if __name__ == "__main__":
+    cmds = argparse.ArgumentParser()
+    cmds.add_argument("--regex", help="Regular Expression")
+    cmds.add_argument("--lang", help="Language")
+
+    args = cmds.parse_args();
+
 class State:
   # Constructor used to define State edges and labels.
   def __init__(self, label=None, edges=None):
