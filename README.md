@@ -10,25 +10,19 @@ When you download the Git-Repo you will be presented with a number of files.  Th
 > The regular expression '(ab)|b*' will not be recognised and cause an error.  Instead use the regular expression '(a.b)|b*'
 > The regular expression 'fe?d' will not be recognised and cause an error. Instead use the regular expression 'f.e?.d'
 
+### Run 1: Simple run through
+
 Run input.py using python3 input.py in your command line.
 ![Imgur](https://i.imgur.com/SipeKsH.png)
 
-You will be prompted with the following message "What's your regular Expression?" where you can input the regular expression you wish to use.  You will be shown what you have entered and asked is this correct.  If it is you may enter any of the follow: ['Y', 'y', 'yes', 'Yes', 'YES'].  If it is not correct you may enter any other key and it will prompt you to enter your regular expression again.
+You will be prompted with the following message "What's your regular Expression?" where you can input the regular expression (a.b)|b*.  You will be shown what you have entered and asked is this correct.  Then enter any of the follow answers: ['Y', 'y', 'yes', 'Yes', 'YES'].  However, if you have not entered it correctly you may enter any other key and it will prompt you to re-enter your regular expression again.
 ![Imgur](https://i.imgur.com/JYcg7jl.png)
 
-You will be prompted with the following message "What's your String?" where you can input the string you wish to use.  You will be shown what you have entered and asked is this correct, as stated previously above.
+You will be prompted with the following message "What's your String?" where you can input the string bbbb.  You will be shown what you have entered and asked is this correct, as stated previously above.
 ![Imgur](https://i.imgur.com/A2tP4fo.png)
 
 You will be shown 3 different messages.  The first is the regular expression and the string you are using divided by a ','.  The second is a Success or Failure message.  The third will show the string you used and what regular expression it has match with.
 ![Imgur](https://i.imgur.com/Vi3dHKm.png)
-
-### Exmaple Usage:
-1. python3 input.py
-2. (a.b)|b*
-3. YES
-4. bbbbbbbbbbbbbbbb
-5. y
-6. "Success or Failure Message!"
 
 ## Testing
 
