@@ -51,6 +51,7 @@ Hitting enter you will then be presented with the programs finished execution wi
 
 ### Run 4: Using command-line arguments to run part of the program.
 The program can be run entirely or partially by using command-line arguments passing the regular-expression and string as arguments.  If you run python3 input.py --help ![Imgur](https://i.imgur.com/EcNmsNQ.png) you will be shown the two optional arguments that you can use inconjunction with python3 input.py.
+![Imgur](https://i.imgur.com/M9KP1Hk.png)
 
 You can then run the python3 input.py --regex "(a?.b).c", being sure you use double qoutes "" to format your regular-expression into a String for the programs ease.
 ![Imgur](https://i.imgur.com/U0gEcfy.png)
