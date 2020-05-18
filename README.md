@@ -10,7 +10,7 @@ When you download the Git-Repo you will be presented with a number of files.  Th
 > The regular expression '(ab)|b*' will not be recognised and cause an error.  Instead use the regular expression '(a.b)|b*'
 > The regular expression 'fe?d' will not be recognised and cause an error. Instead use the regular expression 'f.e?.d'
 
-### Run 1: Simple run through
+### Run 1: Simple run with Success
 
 Run input.py using python3 input.py in your command line.
 ![Imgur](https://i.imgur.com/SipeKsH.png)
@@ -21,9 +21,22 @@ You will be prompted with the following message "What's your regular Expression?
 You will be prompted with the following message "What's your String?" where you can input the string bbbb.  You will be shown what you have entered and asked is this correct, as stated previously above.
 ![Imgur](https://i.imgur.com/A2tP4fo.png)
 
-You will be shown 3 different messages.  The first is the regular expression and the string you are using divided by a ','.  The second is a Success or Failure message.  The third will show the string you used and what regular expression it has match with.
-
+You will be shown 3 different messages.  The first is the regular expression and the string you are using divided by a ','.  The second is a Success message.  The third will show the string you used and what regular expression it has matched with.
 ![Imgur](https://i.imgur.com/Vi3dHKm.png)
+
+### Run 2: Simple run with Failure
+
+Run input.py using python3 input.py in your command line.
+![Imgur](https://i.imgur.com/SipeKsH.png)
+
+You will be prompted with the following message "What's your regular Expression?" where you can input the regular expression (a.b)|b*.  You will be shown what you have entered and asked is this correct.  Then enter any of the follow answers: ['Y', 'y', 'yes', 'Yes', 'YES'].  However, if you have not entered it correctly you may enter any other key and it will prompt you to re-enter your regular expression again.
+![Imgur](https://i.imgur.com/JYcg7jl.png)
+
+You will be prompted with the following message "What's your String?" where you can input the string aabb.  You will be shown what you have entered and asked is this correct, as stated previously above.
+![Imgur](https://i.imgur.com/8Vkrrsb.png)
+
+You will be shown 3 different messages.  The first is the regular expression and the string you are using divided by a ','.  The second is a Failure message.  The third will show the string you used and what regular expression it has not matched with.
+![Imgur](https://i.imgur.com/0OtD8DC.png)
 
 ## Testing
 
