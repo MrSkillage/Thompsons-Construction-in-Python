@@ -19,6 +19,7 @@ You will be prompted with the following message "What's your regular Expression?
 ![Imgur](https://i.imgur.com/JYcg7jl.png)
 
 You will be prompted with the following message "What's your String?" where you can input the string bbbb.  You will be shown what you have entered and asked is this correct, as stated previously above.
+
 ![Imgur](https://i.imgur.com/A2tP4fo.png)
 
 You will be shown 3 different messages.  The first is the regular expression and the string you are using divided by a ','.  The second is a Success message.  The third will show the string you used and what regular expression it has matched with.
