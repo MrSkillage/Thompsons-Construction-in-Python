@@ -22,6 +22,7 @@ You will be prompted with the following message "What's your String?" where you 
 ![Imgur](https://i.imgur.com/A2tP4fo.png)
 
 You will be shown 3 different messages.  The first is the regular expression and the string you are using divided by a ','.  The second is a Success or Failure message.  The third will show the string you used and what regular expression it has match with.
+
 ![Imgur](https://i.imgur.com/Vi3dHKm.png)
 
 ## Testing
