@@ -41,7 +41,8 @@ You will be shown 3 different messages.  The first is the regular expression and
 ### Run 3: Using command-line arguments to run the program.
 
 ## Testing
-
+The testing for this program is simply done by using the assert function.  Inside of the test.py file is a dictionary list of hardcoded tests used to verify the accuracy of the regex.match function.  Each of theses tests contain 3 bits of information. The first two are the regular expression and string, respectively. The third is a boolean of either True or False used to store the expected outcome of the regex.match function. The program then runs through and asserts each of the tests found inside of the dictionary list. Then a print statement is used to show the user what has been tested and if they string has matched the regular expression.  
+![Imgur](https://i.imgur.com/k51EUSM.png)
 
 ## Research
 I have done some extra research on this project beyond the minimal requirements and will feature them here:
