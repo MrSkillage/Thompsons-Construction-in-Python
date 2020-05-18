@@ -11,6 +11,7 @@ When you download the Git-Repo you will be presented with a number of files.  Th
 > The regular expression 'fe?d' will not be recognised and cause an error. Instead use the regular expression 'f.e?.d'
 
 1. Run input.py using python3 input.py in your command line.
+![Imgur](https://i.imgur.com/SipeKsH.png)
 2. You will be prompted with the following message "What's your regular Expression?" where you can input the regular expression you wish to use.
 3. You will be shown what you have entered and asked is this correct.  If it is you may enter any of the follow: ['Y', 'y', 'yes', 'Yes', 'YES'].  If it is not correct you may enter any other key and it will prompt you to enter your regular expression again.
 4. You will be prompted with the following message "What's your String?" where you can input the string you wish to use.
