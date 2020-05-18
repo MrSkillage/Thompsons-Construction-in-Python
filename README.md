@@ -38,6 +38,8 @@ You will be prompted with the following message "What's your String?" where you 
 You will be shown 3 different messages.  The first is the regular expression and the string you are using divided by a ','.  The second is a Failure message.  The third will show the string you used and what regular expression it has not matched with.
 ![Imgur](https://i.imgur.com/0OtD8DC.png)
 
+### Run 3: Using command-line arguments to run the program.
+
 ## Testing
 
 
