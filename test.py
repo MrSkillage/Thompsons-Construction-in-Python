@@ -21,5 +21,6 @@ if __name__ == "__main__":
 # Checks each test in tests and asserts them against the regex match function
 for test in tests:
   assert regex.match(test[0], test[1]) == test[2], test[0] + \
-  (" should match " if test[2] else " should not mtach ") + test[1]
-
+  (" should match " if test[2] else " should not match ") + test[1]
+  # Print message that tells the user is the test 'Passed' or 'Failed'
+  print("Test: " + test[0] + ", " + test[1] + ("\t\tPassed" if test[2] else "\t\tFailed"))
