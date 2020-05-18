@@ -38,7 +38,29 @@ You will be prompted with the following message "What's your String?" where you 
 You will be shown 3 different messages.  The first is the regular expression and the string you are using divided by a ','.  The second is a Failure message.  The third will show the string you used and what regular expression it has not matched with.
 ![Imgur](https://i.imgur.com/0OtD8DC.png)
 
-### Run 3: Using command-line arguments to run the program.
+### Run 3: Using command-line arguments to run the entire program.
+The program can be run entirely or partially by using command-line arguments passing the regular-expression and string as arguments.  If you run python3 input.py --help ![Imgur](https://i.imgur.com/EcNmsNQ.png) you will be shown the two optional arguments that you can use inconjunction with python3 input.py.
+![Imgur](https://i.imgur.com/M9KP1Hk.png)
+
+You can then run python3 input.py --regex "(a?.b).c" --lang "abc", being sure you use double quotes "" to format your regular-expression and language-string into a String for the programs ease.
+![Imgur](https://i.imgur.com/FJKsXHr.png)
+
+Hitting enter you will then be presented with the programs finished execution without have to run through the original program like above.
+
+![Imgur](https://i.imgur.com/kDDdCdb.png)
+
+### Run 4: Using command-line arguments to run part of the program.
+The program can be run entirely or partially by using command-line arguments passing the regular-expression and string as arguments.  If you run python3 input.py --help ![Imgur](https://i.imgur.com/EcNmsNQ.png) you will be shown the two optional arguments that you can use inconjunction with python3 input.py.
+
+You can then run the python3 input.py --regex "(a?.b).c", being sure you use double qoutes "" to format your regular-expression into a String for the programs ease.
+![Imgur](https://i.imgur.com/U0gEcfy.png)
+
+You will then be prompted, as seen in Run 1, for the String.  You can then enter into the program 'abc' and hit enter.  You will then be shown a comformation message in whihc you can enter any of the follow answers: ['Y', 'y', 'yes', 'Yes', 'YES'].  However, if you have not entered it correctly you may enter any other key and it will prompt you to re-enter your regular expression again.
+
+![Imgur](https://i.imgur.com/U4wSYqy.png)
+
+Finally you will be display with the Success message at the end of the programs execution.
+![Imgur](https://i.imgur.com/5IPDg8y.png)
 
 ## Testing
 The testing for this program is simply done by using the assert function.  Inside of the test.py file is a dictionary list of hardcoded tests used to verify the accuracy of the regex.match function.  Each of theses tests contain 3 bits of information. The first two are the regular expression and string, respectively. The third is a boolean of either True or False used to store the expected outcome of the regex.match function. The program then runs through and asserts each of the tests found inside of the dictionary list. Then a print statement is used to show the user what has been tested and if they string has matched the regular expression.  
